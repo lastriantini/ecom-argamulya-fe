@@ -1,27 +1,18 @@
 import React from "react";
-import GuestNavbar from "../Navbar/guestNavbar";
-import TitleSection from "../Sections/TitleSection";
-import HeroSection from "../Sections/HeroSection";
-import DescSection from "../Sections/DescSection";
-import { Carousels } from "../Carousels/carousel";
+import GuestNavbar from "../../components/Navbar/GuestNavbar";
+import TitleSection from "../../components/Sections/TitleSection";
+import HeroSection from "../../components/Sections/HeroSection";
+import DescSection from "../../components/Sections/DescSection";
+import Carousels from "../../components/Carousels/carousel";
+import Cards from "../../components/Cards/AllCards";
+import Footer from "../../components/Footer/Footer";
 import HomeImg from "../../assets/home_img.png";
 import carousel1 from "../../assets/carousel1.png";
 import AboutHero from "../../assets/about_hero.png";
 import HpdkiLogo from "../../assets/hpdkiLogo.png";
 
 function GuestSinglePage() {
-  const title = (
-    <h2
-      class="arya-regular"
-      style="text-align: center; color: #F2E6D8; font-size: 10vw; line-height: 12vw"
-    >
-      PDP
-      <br />
-      <span style="color: #BF612A; font-size: 15vw">ARGAMULYA</span>
-      <br />
-      BOGOR
-    </h2>
-  );
+  // content di loop di file card dan button, untuk file ini hanya loop section
   return (
     <>
       <GuestNavbar />
@@ -65,19 +56,31 @@ Nunc quis mauris posuere, malesuada lorem ac, pellentesque nulla.</p>`}
       {/* )} */}
 
       {/* {section.type === kerjasama && ( */}
-      <div className="mt-[15vw] grid grid-cols-12" style={{background: "#F2E6D8"}}>
-        <div className="col-span-3">
+      <div className="grid grid-cols-12" style={{background: "#F2E6D8"}}>
+        <div className="col-span-2">
             <HeroSection image={HpdkiLogo} type ="hero_kerjasama"/>
         </div>
         <div className="col-span-5">
-            <DescSection type ="desc_kerjasama" desc={`<p class="rasa-regular" style="color: #422D1c";font-size:1.3vw;><b>HPDKI</b> adalah forum organisasi yang demokratis untuk mencapai tujuan cita-cita para <b>peternak domba kambing di Indonesia</b> dalam menghadapi tantangan pembangunan.</p>`} />
+            <DescSection type ="desc_kerjasama" desc={`<p class="rasa-regular" style="color: #422D1c";font-size:1.5vw;><b>HPDKI</b> adalah forum organisasi yang demokratis untuk mencapai tujuan cita-cita para <b>peternak domba kambing di Indonesia</b> dalam menghadapi tantangan pembangunan.</p>`} />
         </div>
-        <div className="col-span-4">
-            <TitleSection type="title_kerjasama" title={`<h1 class="bebas-neue-regular" style="color:#BF612A; font-size:4.5vw">KERJA SAMA</h1>
-<h1 class="bebas-neue-regular transform scale-y-[-1] opacity-35 mt-[-4.5vw]" style="color:#BF612A; font-size:4.5vw">KERJA SAMA</h1>`} />
+        <div className="col-span-5">
+            <TitleSection type="title_kerjasama" title={`<h1 class="bebas-neue-regular " style="color:#BF612A; font-size:5.35vw"><b>KERJA SAMA</h1>
+<h1 class="bebas-neue-regular transform scale-y-[-1] opacity-35 mt-[-5.1vw]" style="color:#BF612A; font-size:5.35vw">KERJA SAMA</b></h1>`} />
         </div>
       </div>
       {/* )} */}
+
+      {/* {section.type === ulasan && ( */}
+      <div className="pt-[9vw]">
+        <TitleSection
+          type="title_ulasan"
+          title={`<h2 class="bebas-neue-regular" style="color:#BF612A;" <b>ULASAN PELANGGAN</b> </h2>`}
+        />
+        <Cards section_id={1}/>
+        {/* <h1 className="text-light">ini cards</h1> */}
+      </div>
+      {/* )} */}
+      <Footer/>
     </>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
-import GuestSinglePage from "../components/Pages/guestSinglePage";
+import GuestSinglePage from "../Pages/Guest/GuestSinglePage";
 const queryClient = new QueryClient();
 
 function GuestRoutes() {

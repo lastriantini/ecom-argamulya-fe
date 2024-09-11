@@ -6,10 +6,10 @@ const HeroSection = ({ image, type }) => {
             <img className="mx-auto h-[30vw]" src={image} alt={image}/>
         )}
         {type == "hero_about" && (
-            <img className="mx-auto w-[42vw] mb-[10vw]" src={image} alt={image}/>
+            <img className="mr-auto w-[42vw] mb-[10vw]" src={image} alt={image}/>
         )}
         {type == "hero_kerjasama" && (
-            <img className="" src={image} alt={image}/>
+            <img className="ml-[10vw] py-[1vw] w-[17vw]" src={image} alt={image}/>
         )}
         </>
     )

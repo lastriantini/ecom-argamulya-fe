@@ -8,6 +8,8 @@ import {
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "../../assets/iconArgamulya.png";
 import Buttons from "../Buttons/button";
+import SignUp from "../Modal/SignUp";
+import LogIn from "../Modal/LogIn";
 
 function NavList() {
   return (
@@ -58,8 +60,8 @@ function NavList() {
         </a>
       </Typography>
       <div>
-        <Buttons title="Log In" type="login-button" />
-        <Buttons title="Sign Up" type="signup-button" />
+        <LogIn/>
+        <SignUp/>
       </div>
     </div>
   );

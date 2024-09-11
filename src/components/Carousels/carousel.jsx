@@ -1,6 +1,6 @@
 import { Carousel } from "@material-tailwind/react";
  
-export function Carousels(props) {
+function Carousels(props) {
     const { title, description, image, type } = props;
   return (
     <Carousel
@@ -37,3 +37,4 @@ export function Carousels(props) {
     </Carousel>
   );
 }
+export default Carousels;

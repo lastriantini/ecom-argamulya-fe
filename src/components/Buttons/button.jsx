@@ -1,12 +1,12 @@
 import React from "react";
 import { Button } from "@material-tailwind/react";
 
-const Buttons = ({ title, type }) => {
+const Buttons = ({ title, type, onClick }) => {
   return (
     <>
       {type === "login-button" && (
         <Button
-          // onClick={}
+          onClick={onClick}
           variant="outlined"
           style={{
             borderColor: "#BF612A",
@@ -16,12 +16,12 @@ const Buttons = ({ title, type }) => {
           }}
           className="mr-[0.5vw] rounded-full border-2 arya-bold text-center"
         >
-          <h5 style={{fontSize: "1.1vw", marginTop: "-0.2vw"}}>{title}</h5>
+          <h5 style={{ fontSize: "1.1vw", marginTop: "-0.2vw" }}>{title}</h5>
         </Button>
       )}
       {type === "signup-button" && (
         <Button
-          // onClick={}
+          onClick={onClick}
           variant="filled"
           style={{
             backgroundColor: "#BF612A",
@@ -31,7 +31,7 @@ const Buttons = ({ title, type }) => {
           }}
           className="rounded-full arya-bold"
         >
-          <h5 style={{fontSize: "1.1vw", paddingTop: "-1.5vw"}}>{title}</h5>
+          <h5 style={{ fontSize: "1.1vw", paddingTop: "-1.5vw" }}>{title}</h5>
         </Button>
       )}
     </>

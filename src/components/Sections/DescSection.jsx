@@ -4,12 +4,12 @@ const DescSection = ({ desc, type }) => {
     return (
         <>
         {type === "desc_about" && (
-            <Typography className="mt-[0vw] pl-[14vw] text-right">
+            <Typography className="mr-[1.5vw] pl-[14vw] text-right">
                 <div dangerouslySetInnerHTML={{ __html: desc }} />
             </Typography>
         )}
         {type === "desc_kerjasama" && (
-            <Typography className="mt-[0vw] pl-[14vw] py-[5vw] text-right">
+            <Typography style={{fontSize: "1.45vw"}} className="mt-[0vw] pl-[14vw] mr-[-5vw] py-[5.5vw] text-left">
                 <div dangerouslySetInnerHTML={{ __html: desc }} />
             </Typography>
         )}
