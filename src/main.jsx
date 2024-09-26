@@ -13,9 +13,9 @@ ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
     <ThemeProvider>
       <ReduxProvider store={store}>
-        <PersistGate persistor={persistor}>
+        {/* <PersistGate persistor={persistor}> */}
           <App />
-        </PersistGate>
+        {/* </PersistGate> */}
       </ReduxProvider>
     </ThemeProvider>
   </React.StrictMode>

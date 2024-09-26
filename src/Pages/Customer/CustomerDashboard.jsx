@@ -2,35 +2,45 @@ import React from "react";
 import CustomerNavbar from "../../components/Navbar/CustomerNavbar";
 import Header from "../../components/Header/Header";
 import Carousel from "../../components/Carousels/carousel";
-import CardProduct from "../../components/Cards/CardProduct/CardProduct";
-import { useGetProductsQuery } from "../../redux/services/apiProduct";
+import CardProducts from "../../components/Cards/CardProduct/CardProducts";
+import {
+  useGetProductsQuery,
+  useGetCategoryQuery,
+} from "../../redux/services/ProductApi";
+import carousel1 from "../../assets/carousel1.png";
 
 function CustomerDashboard() {
-  const { data: products, error, isLoading } = useGetProductsQuery();
+  const {
+    data: products,
+    error: productsError,
+    isLoading: productsLoading,
+  } = useGetProductsQuery();
+  const {
+    data: categories,
+    error: categoriesError,
+    isLoading: categoriesLoading,
+  } = useGetCategoryQuery();
 
-  console.log("Is Loading:", isLoading);
-  console.log("Products Data:", products); // Should log product data if successful
-  console.log("Error:", error); 
-
-  if (isLoading) return <div>Loading...</div>;
-  if (error) return <div>Error: {error.message}</div>;
+  if (productsLoading || categoriesLoading) return <div>Loading...</div>;
+  if (productsError)
+    return <div>Error fetching products: {productsError.message}</div>;
+  if (categoriesError)
+    return <div>Error fetching categories: {categoriesError.message}</div>;
 
   return (
     <>
       <CustomerNavbar />
       <Header />
-      <Carousel />
-      <div>
-        {products &&
-          products.map((product) => (
-            <CardProduct 
-              key={product.id}
-              name={product.name_product}
-              price={product.price}
-              image={product.photo_product}
-            />
-          ))}
-      </div>
+      <Carousel image={carousel1} />
+      {/* ini nanti dipindah ke cardproducts kalo group by categorynya udah kelar */}
+
+      {categories &&
+        categories.map((category) => (
+          <>
+            {/* <h1>tes</h1> */}
+            <CardProducts name_category={category.name_category} category_id={category.id} />
+          </>
+        ))}
     </>
   );
 }

@@ -3,8 +3,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
-import CardContent from "./CardContents/cardContent";
-import CardRatingImg from "../../assets/card-rating.png";
+import CardContent from "./cardContent";
+import CardRatingImg from "../../../assets/card-rating.png";
 
 const Cards = ({ section_id }) => {
   const slides = [1, 2, 3, 4, 5];
@@ -19,7 +19,7 @@ const Cards = ({ section_id }) => {
           spaceBetween={40} // Adjust space between slides
           pagination={{ clickable: true }}
           modules={[Pagination]}
-          className="mySwiper mx-[16vw] pt-[2vw]"
+          className="mySwiper swiper-rating mx-[16vw] pt-[2vw]"
           slidesPerGroup={1} // Adjust to paginate one slide at a time
         >
           {slides.map((item, index) => (

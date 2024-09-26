@@ -1,18 +1,31 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   Collapse,
   Typography,
   Input,
   IconButton,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
 } from "@material-tailwind/react";
+import { Link } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import Logo from "../../assets/iconArgamulya.png";
+import { useDispatch } from "react-redux";
+import { logout } from "../../redux/slice/AuthSlice";
 import Buttons from "../Buttons/button";
-import SignUp from "../Modal/SignUp";
-import LogIn from "../Modal/LogIn";
 
 function NavList() {
+  const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useDispatch();
+
+  const handleLogout = () => {
+    dispatch(logout());
+    toast.success("Logout Success!");
+  };
+
   return (
     <div
       style={{ color: "#BF612A", margin: "0 5vw 0 2vw" }}
@@ -104,20 +117,36 @@ function NavList() {
         />
       </svg>
 
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={1.7}
-        stroke="#BF612A"
-        className="w-[2.2vw]"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
-        />
-      </svg>
+      <Menu>
+        <MenuHandler>
+          <svg
+            onClick={() => setIsOpen(!isOpen)}
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            strokeWidth={1.7}
+            stroke={!isOpen ? "#BF612A" : "#422D1C"}
+            className="w-[2.2vw] profile"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              d="M17.982 18.725A7.488 7.488 0 0 0 12 15.75a7.488 7.488 0 0 0-5.982 2.975m11.963 0a9 9 0 1 0-11.963 0m11.963 0A8.966 8.966 0 0 1 12 21a8.966 8.966 0 0 1-5.982-2.275M15 9.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z"
+            />
+          </svg>
+        </MenuHandler>
+        <MenuList className="bg-[#F2E6D8] text-[#422D1C] mt-[1vw] w-[9vw] arya-bold text-[1.3vw]">
+          <Link to="/profile">
+            <MenuItem href="/profile" className="text-center">
+              Profile
+            </MenuItem>
+          </Link>
+          <hr className="my-[0.5vw] border-[#422D1C]" />
+          <MenuItem className="text-center">My Order</MenuItem>
+          <hr className="my-[0.5vw] border-[#422D1C]" />
+          <MenuItem onClick={handleLogout} className="text-center" >Sign Out</MenuItem>
+        </MenuList>
+      </Menu>
 
       <div></div>
     </div>

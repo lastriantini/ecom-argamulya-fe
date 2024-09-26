@@ -4,26 +4,20 @@ import TitleSection from "../../components/Sections/TitleSection";
 import HeroSection from "../../components/Sections/HeroSection";
 import DescSection from "../../components/Sections/DescSection";
 import Carousels from "../../components/Carousels/carousel";
-import Cards from "../../components/Cards/AllCards";
+import Cards from "../../components/Cards/CardContents/AllCards";
 import Footer from "../../components/Footer/Footer";
 import HomeImg from "../../assets/home_img.png";
 import carousel1 from "../../assets/carousel1.png";
 import AboutHero from "../../assets/about_hero.png";
 import HpdkiLogo from "../../assets/hpdkiLogo.png";
-
+import Header from "../../components/Header/Header";
 function GuestSinglePage() {
   // content di loop di file card dan button, untuk file ini hanya loop section
   return (
     <>
       <GuestNavbar />
       {/* {section.type === home && ( */}
-      <div className="pt-[10vw]">
-        <HeroSection type="hero_home" image={HomeImg} />
-        <TitleSection
-          type="title_home"
-          title={`<h2 class="notable-regular" style="text-align: center; color: #F2E6D8; font-size: 5vw; line-height: 6.7vw;text-shadow: 1px 1px gray;">PDP<br/><span style="color: #BF612A; font-size: 10.5vw;text-shadow:none">ARGAMULYA</span><br />BOGOR</h2>`}
-        />
-      </div>
+      <Header/>
       {/* )} */}
 
       {/* {section.type === carousel && ( */}

@@ -34,6 +34,19 @@ const Buttons = ({ title, type, onClick }) => {
           <h5 style={{ fontSize: "1.1vw", paddingTop: "-1.5vw" }}>{title}</h5>
         </Button>
       )}
+      {type === "add-to-cart" && (
+        <Button 
+        onClick={onClick}
+          variant="filled"
+          style={{
+            backgroundColor: "#D07C2E",
+            color: "#F8FBED",
+            width: "16vw",
+          }}
+          className="rounded-full arya-regular text-[1.1vw] py-[0.7vw]" >
+          <h5>{title}</h5>
+        </Button>
+      )}
     </>
   );
 };

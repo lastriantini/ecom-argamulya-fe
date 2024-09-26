@@ -4,7 +4,7 @@ const TitleSection = ({ title, type }) => {
   return (
     <>
       {type === "title_home" && (
-        <Typography className="text-center mt-[-27vw]">
+        <Typography className="text-center mt-[-12vw] px-[7vw] py-[3vw]">
           <div dangerouslySetInnerHTML={{ __html: title }} />
         </Typography>
       )}

@@ -1,7 +1,7 @@
-import { apiCore } from "./apiCore";
+import { apiCore } from "./apiCore"; // Verify this import path and the existence of `apiCore`
 
-const apiProduct = apiCore.injectEndpoints({
-  reducerPath: 'apiProduct',
+const ProductApi = apiCore.injectEndpoints({
+  reducerPath: 'ProductApi',
   tagTypes: ["Products"],
   endpoints: (builder) => ({
     getProducts: builder.query({
@@ -10,7 +10,13 @@ const apiProduct = apiCore.injectEndpoints({
         console.log("Raw response:", response); // Log the raw response for debugging
         return response.data; 
       },
-    }),  
+    }),
+    getCategory: builder.query({
+      query: () => '/api/category',
+      transformResponse: (response) => {
+        return response.data; 
+      },
+    }),
     getProduct: builder.query({
       query: (id) => `/api/products/${id}`,
     }),
@@ -26,8 +32,9 @@ const apiProduct = apiCore.injectEndpoints({
 
 export const {
   useGetProductsQuery,
+  useGetCategoryQuery,
   useGetProductQuery,
   useDeleteProductMutation,
-} = apiProduct;
+} = ProductApi;
 
-export default apiProduct;  
+export default ProductApi;
